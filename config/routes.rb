@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :users, only: [:index, :create]
+
+  get 'users/filter', to: 'users#filter'
 end
