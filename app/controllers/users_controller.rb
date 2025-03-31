@@ -8,12 +8,11 @@ class UsersController < ApplicationController
 
     # Add New User:
 	def create
-		debugger
 		user = User.new(user_params)
 		if user.save
 			render json: {user: user}, status: 201
 	    else
-	    	render json: {errors: user.errors.full_messages}, status: 404
+	    	render json: {errors: user.errors.full_messages}, status: 422
 	    end
 	end
 
@@ -29,6 +28,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.permit(:name, :email, campaigns_list: {})
+		params.permit(:name, :email, campaigns_list:  [:campaign_name, :campaign_id])
 	end
 end

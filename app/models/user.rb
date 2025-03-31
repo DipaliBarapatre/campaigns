@@ -9,8 +9,8 @@ class User < ApplicationRecord
 private
 
 def validate_campaigns_structure
-  required_keys = %w[campaign_name campaign_name]
-  unless self.campaigns_list.is_a?(Hash) && required_keys.all? { |key| self.campaigns_list.key?(key) }
+  required_keys = %w[campaign_name campaign_id]
+  unless self.campaigns_list.is_a?(Array) && required_keys.all? {|key| self.campaigns_list.inject([]) { |result, hash| result | hash.keys }}
     errors.add(:campaigns_list, "must contain required keys: #{required_keys.join(', ')}")
   end
 end
