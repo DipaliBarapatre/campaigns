@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server "54.88.221.213", user: "ubuntu", roles: %w{app db web}
+server "44.206.224.19", user: "ubuntu", roles: %w{app db web}
 # set :default_env, path: '/usr/local/ruby-2.6.5/bin:$PATH'
 set :puma_workers, 2
 set :sidekiq_processes, 2
